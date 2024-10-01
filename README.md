@@ -3,6 +3,10 @@
 <!--
 **imtanujbranch/imtanujbranch** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
+<p>
+  <img src="https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/achievements?format=svg&limit=3" width="350" />
+</p>
+
 Here are some ideas to get you started:
 
 - 🔭 I’m currently working on ...
