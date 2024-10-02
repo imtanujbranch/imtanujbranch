@@ -21,6 +21,6 @@ Here are some ideas to get you started:
 
 </p>    
 <a href="https://vaunt.dev/">
-        <img src="https://api.vaunt.dev/v1/github/entities/{{GITHUB_USERNAME}}/contributions?format=svg" width="350" />
+        <img src="https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/contributions?format=svg" width="350" />
     </a>
 </p>
