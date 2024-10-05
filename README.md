@@ -38,3 +38,6 @@ Here are some ideas to get you started:
   </a>
 </p>
 
+
+[![Vaunt Community](https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/badges/community)](https://community.vaunt.dev/board/{{imtanujbranch}})
+
