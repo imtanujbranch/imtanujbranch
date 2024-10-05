@@ -16,11 +16,11 @@ Here are some ideas to get you started:
 -->
 <p style="display:inline;">
   <img src="https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/achievements?format=svg&limit=3" width="350" />
+  <img src="https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/contributions?format=svg" width="350" />
 </p>
 
-
+<!--
 <p style="display:inline;">    
-<a href="https://vaunt.dev/">
-        <img src="https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/contributions?format=svg" width="350" />
     </a>
 </p>
+-->
