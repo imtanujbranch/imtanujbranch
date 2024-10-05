@@ -23,8 +23,8 @@ I'm a passionate developer who loves to code and create awesome projects. Welcom
 - Best practices in software development
 
 ## 📫 How to reach me
-- [LinkedIn](https://www.linkedin.com/in/yourusername)
-- [Twitter](https://twitter.com/yourusername)
+- [LinkedIn](https://www.linkedin.com/in/tanuj-khati-469456244)
+- [Github](https://github.com/imtanujbranch)
 - [Email](mailto:your.email@example.com)
 <!--
 ## 🏆 Achievements
