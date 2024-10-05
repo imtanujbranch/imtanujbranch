@@ -14,6 +14,9 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+[![Vaunt Community](https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/badges/community)](https://community.vaunt.dev/board/{{imtanujbranch}})
+
 <p style="display:inline;">
   <img src="https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/achievements?format=svg&limit=3" width="350" />
   <img src="https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/contributions?format=svg" width="350" />
@@ -39,5 +42,5 @@ Here are some ideas to get you started:
 </p>
 
 
-[![Vaunt Community](https://api.vaunt.dev/v1/github/entities/{{imtanujbranch}}/badges/community)](https://community.vaunt.dev/board/{{imtanujbranch}})
+
 
