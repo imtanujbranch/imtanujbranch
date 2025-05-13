@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataViz Compiler - VizForge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="app-title text-3xl">DataViz Compiler</h1>
+                <p class="by-vizforge text-sm ml-1">by VizForge</p>
+            </div>
+            <div class="flex items-center">
+                <div class="team-info mr-4 hidden md:block">
+                    <div class="team-members">
+                        <p>Keshav Maheshwari (Lead)</p>
+                        <p>Anjali Kumari</p>
+                        <p>Tanuj Khati</p>
+                    </div>
+                </div>
+                <button id="themeToggle" class="icon-button focus:outline-none" aria-label="Toggle theme">
+                    <svg id="themeIconSun" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="hidden">
+                        <circle cx="12" cy="12" r="8"/>
+                    </svg>
+                    <svg id="themeIconMoon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 2c-1.82 0-3.53.5-5 1.35 2.99 1.73 5 4.95 5 8.65s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-6 flex-grow grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <section class="p-6 xl:col-span-1">
+            <div class="flex justify-between items-center mb-5">
+                <h2 class="section-title text-xl">1. Define Your Chart (DSL)</h2>
+                <div class="flex items-center">
+                    <label for="wordWrapToggle" class="toggle-switch-label mr-2">Word Wrap</label>
+                    <input type="checkbox" id="wordWrapToggle" class="toggle-checkbox">
+                </div>
+            </div>
+            
+            <div class="code-editor-wrapper">
+                <div id="lineNumbers" class="line-numbers">
+                    <div>1</div>
+                </div>
+                <textarea id="dslInput" class="dsl-editor word-wrap-off" spellcheck="false">
+TYPE: pie
+TITLE: "Market Share Q3"
+LABELS: ["Product A", "Product B", "Product C", "Others"]
+DATASET_LABEL: "Market Share"
+DATA: [40, 25, 15, 20]
+BACKGROUND_COLOR: ["#58a6ff", "#34d399", "#f59e0b", "#ef4444"]
+BORDER_COLOR: ["#0d1a26", "#0d1a26", "#0d1a26", "#0d1a26"]
+BORDER_WIDTH: 2
+                </textarea>
+            </div>
+
+            <button id="renderButton" class="action-button mt-6 w-full">
+                Render Chart
+            </button>
+            <div id="errorMessage" class="mt-4 text-sm text-red-500"></div>
+        </section>
+
+        <section class="p-6 flex flex-col xl:col-span-1">
+            <h2 class="section-title text-xl mb-5">2. View Your Visualization</h2>
+            <div id="chartContainer" class="flex-grow flex items-center justify-center p-4 min-h-[300px] md:min-h-0">
+                <canvas id="myChart"></canvas>
+                <p id="chartPlaceholder">Chart will appear here...</p>
+            </div>
+            <button id="exportPngButton" class="action-button action-button-green mt-6 w-full hidden">
+                Export as PNG
+            </button>
+        </section>
+
+        <section class="p-6 flex flex-col xl:col-span-1">
+            <h2 class="section-title text-xl mb-5">3. Web Code (SVG)</h2>
+            <div class="web-code-wrapper">
+                <pre id="generatedCodeDisplay" class="generated-code-display w-full"><code></code></pre>
+            </div>
+            <button id="copyWebCodeButton" class="action-button action-button-gray mt-6 w-full hidden">
+                Copy Code
+            </button>
+            <div id="copyMessage" class="text-sm text-green-500 dark:text-green-400 mt-2 text-center"></div>
+        </section>
+    </main>
+
+    <footer class="status-bar"></footer>
+
+    <script>
+        // Tailwind CSS Dark Mode Configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html> 
