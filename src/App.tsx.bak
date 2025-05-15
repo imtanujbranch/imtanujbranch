@@ -349,9 +349,9 @@ function App() {
   };
 
   // --- Utility Functions ---
-  const showAlert = useCallback((title: string, description: string) => {
+  const showAlert = (title: string, description: string) => {
     setAlertDialog({ open: true, title, description });
-  }, []);
+  };
 
   const closeAlert = () => {
     setAlertDialog({ open: false, title: '', description: '' });
@@ -435,7 +435,7 @@ function App() {
     log(`First-Fit: Allocation failed for P${process.id} (Size: ${process.size}). No suitable free block.`);
     setExaminedBlockIndex(null);
     return false;
-  }, [log, finalizeAllocation]);
+  }, [log]);
 
   const allocateBestFit = useCallback(async (process: Process) => {
     const currentBlocks = [...memoryBlocksRef.current];
@@ -471,7 +471,7 @@ function App() {
     log(`Best-Fit: Allocation failed for P${process.id} (Size: ${process.size}). No suitable free block.`);
     setCandidateBlockIndices([]);
     return false;
-  }, [log, finalizeAllocation]);
+  }, [log]);
 
   const allocateWorstFit = useCallback(async (process: Process) => {
     const currentBlocks = [...memoryBlocksRef.current];
@@ -507,7 +507,7 @@ function App() {
     log(`Worst-Fit: Allocation failed for P${process.id} (Size: ${process.size}). No suitable free block.`);
     setCandidateBlockIndices([]);
     return false;
-  }, [log, finalizeAllocation]);
+  }, [log]);
 
   const deallocateMemory = useCallback((processIdToRemove: number) => {
     const processIndex = processes.findIndex(p => p.id === processIdToRemove);
@@ -521,7 +521,7 @@ function App() {
       processToRemove.allocatedBlockIndex < 0 ||
       processToRemove.allocatedBlockIndex >= memoryBlocksRef.current.length ||
       memoryBlocksRef.current[processToRemove.allocatedBlockIndex].processId !== processIdToRemove) {
-      log(`Error: Process P${processIdToRemove} has inconsistent allocation data. Index: ${processToRemove.allocatedBlockIndex}. Block: ${processToRemove.allocatedBlockIndex !== null && memoryBlocksRef.current[processToRemove.allocatedBlockIndex] ? JSON.stringify(memoryBlocksRef.current[processToRemove.allocatedBlockIndex]) : 'N/A'}`);
+      log(`Error: Process P${processIdToRemove} has inconsistent allocation data. Index: ${processToRemove.allocatedBlockIndex}. Block: ${memoryBlocksRef.current[processToRemove.allocatedBlockIndex] ? JSON.stringify(memoryBlocksRef.current[processToRemove.allocatedBlockIndex]) : 'N/A'}`);
       showAlert('Deallocation Error', `Inconsistent allocation data for P${processIdToRemove}. Removing process entry.`);
       setProcesses(prev => prev.filter(p => p.id !== processIdToRemove));
       return;
@@ -775,7 +775,7 @@ function App() {
                   {isAnimating ? 'Running...' : 'Add Process'}
                 </Button>
               </div>
-              <Label htmlFor="process-list" className="!mb-1">Process List ({processes.length})</Label>
+              <Label className="!mb-1">Process List ({processes.length})</Label>
               <div className="max-h-60 overflow-y-auto space-y-2 border rounded p-3 bg-gray-50 dark:bg-gray-700/30 border-gray-200 dark:border-gray-600 custom-scrollbar">
                 {processes.length === 0 && <p className="text-xs text-gray-500 dark:text-gray-400 text-center py-4">No active processes.</p>}
                 {processes.sort((a,b) => a.id - b.id).map(proc => (
@@ -828,4 +828,3 @@ function App() {
 }
 
 export default App;
-
