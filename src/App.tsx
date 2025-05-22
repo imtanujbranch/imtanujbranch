@@ -192,7 +192,7 @@ const MemoryVisualization = React.memo(({
   const allocatedStrokeColor = isDark ? '#2563eb' : '#2563eb';
   const allocatedPatternStroke = isDark ? 'rgba(200,200,255,0.2)' : 'rgba(255,255,255,0.2)';
 
-  const freeFillColor = isDark ? '#16a34a' : '#22c55e';
+  const freeFillColor = isDark ? '#18a34a' : '#22c55e';
   const freeStrokeColor = isDark ? '#15803d' : '#16a34a';
 
   const allocatedTextColor = isDark ? 'white' : 'white';
